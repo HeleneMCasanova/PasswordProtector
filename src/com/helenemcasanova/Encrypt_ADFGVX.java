@@ -9,6 +9,7 @@ public class Encrypt_ADFGVX {
 	private static String secondStepKeyword;
 	private static String plaintextMessage;
 	
+	private static String manipulatedAlphabet = "";
 	private static String firstPass = "";
 	private static String secondPass = "";
 	
@@ -16,6 +17,7 @@ public class Encrypt_ADFGVX {
 	private static char [][] secondPassArray;
 	//ADFGVX
 	
+	public Encrypt_ADFGVX() { }
 	
 	public Encrypt_ADFGVX(String ptm, String sk, String ssk) {
 		setPlaintextMessage(ptm);
@@ -47,9 +49,8 @@ public class Encrypt_ADFGVX {
 	public String getSecondStepKeyword() {
 		return secondStepKeyword;
 	}
-	
-	
-	private static String squareKeywordManipulation(String sk) {
+
+	public static String squareKeywordManipulation(String sk) {
 		sk = (sk.toLowerCase()).replaceAll("\\s+","");
 		String newSK = "";
 		
@@ -166,6 +167,7 @@ public class Encrypt_ADFGVX {
 			int place = spkHolder.indexOf(spk.charAt(i));
 			
 			spa[0][i] = (char)(49 + place);
+			
 		}
 		
 		int counter = 0;
